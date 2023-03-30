@@ -19,7 +19,7 @@
 #include <fstream>
 #include <net/if.h>
 #include <sys/ioctl.h>
-#include <boost/thread.hpp>
+// #include <boost/thread.hpp>
 
 int port_in = 10023, port_out = 10024, port_tcp = 11451;
 const long long KB_SIZE = 1024;
@@ -78,6 +78,7 @@ void SocketBind(int &sockfd, struct sockaddr_in &addr, socklen_t &addr_len, int 
 
 void SocketConnect(int &sockfd, struct sockaddr_in &addr, socklen_t &addr_len, int port)
 {
+    std::cout << "Connectting..." << port << std::endl;
     if (connect(sockfd, (struct sockaddr *)&addr, addr_len) == -1)
     {
         std::cout << "Failed to connect socket on port " << port << std::endl;

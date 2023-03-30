@@ -11,7 +11,7 @@
 using namespace std;
 #include "net_test.hpp"
 
-long long file_size = GB_SIZE;
+long long file_size = 10 * MB_SIZE;
 // std::string address = "127.0.0.1";
 // addr.sin_addr.s_addr = htonl(inet_addr(address.c_str()));
 void UDPClient()
@@ -27,7 +27,7 @@ void UDPClient()
 
     addr.sin_family = AF_INET;
     addr.sin_port = htons(port_out);
-    addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    addr.sin_addr.s_addr = htonl(inet_addr("172.20.30.92"));
     SocketSend(udp, sockfd, addr, addr_len, port_out, send_buffer);
     // boost::thread UDPClientSend(SocketSend,udp,sockfd, addr, addr_len, port_out, send_buffer);
     // UDPClientSend.join();
@@ -46,6 +46,10 @@ void TCPClient(int times = 10)
     int tcp = 1;
 
     SocketSetup(tcp, tcp_sockfd, addr, addr_len, port_tcp);
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port_tcp);
+    string address = "172.20.30.92";
+    addr.sin_addr.s_addr = inet_addr(address.c_str());
     SocketConnect(tcp_sockfd, addr, addr_len, port_tcp);
 
     std::cout << "\n=============TimeCounter=============" << std::endl;

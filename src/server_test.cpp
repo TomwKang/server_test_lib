@@ -223,18 +223,18 @@ int main(int argc, char const *argv[])
 
         if (strcmp(argv[2], "thread") == 0)
         {
-            int thread_num = 1;
-            double mem_size = 7.0;
-            thread_num = atoi(argv[3]);
-            mem_size = atof(argv[4]);
-            boost::thread_group thread_group_mem;
-            for (int i = 0; i < thread_num; ++i)
-            {
-                thread_group_mem.create_thread(boost::bind(MemCopyTest, mem_size * 1024));
-            }
-            thread_group_mem.join_all();
-            cout << "========MEMTEST========\n"
-                 << endl;
+            // int thread_num = 1;
+            // double mem_size = 7.0;
+            // thread_num = atoi(argv[3]);
+            // mem_size = atof(argv[4]);
+            // boost::thread_group thread_group_mem;
+            // for (int i = 0; i < thread_num; ++i)
+            // {
+            //     thread_group_mem.create_thread(boost::bind(MemCopyTest, mem_size * 1024));
+            // }
+            // thread_group_mem.join_all();
+            // cout << "========MEMTEST========\n"
+            //      << endl;
         }
         else if (strcmp(argv[2], "nothread") == 0)
         {

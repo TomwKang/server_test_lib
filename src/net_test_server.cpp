@@ -9,7 +9,6 @@
 #include <cstring>
 #include <iostream>
 #include <functional>
-#include <boost/thread.hpp>
 #include "net_test.hpp"
 
 void UDPServer()
