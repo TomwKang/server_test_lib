@@ -1,0 +1,26 @@
+========INFO========
+Linux version 5.15.90.1-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Fri Jan 27 02:56:13 UTC 2023
+CPU  name	: Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz
+MemTotal: 7890 MB
+========INFO========
+
+【内存分配测试】
+========MEMTEST========
+new 最大分配内存： 9.70605 GB
+malloc 最大分配内存： 9.70703 GB
+【测试分配90%最大内存】
+测试分配大小: 7101 MB, 用时: 3349 ms
+速度: 2120.33 MB/s
+========MEMTEST========
+
+【磁盘顺序写入1GB测试(‘x’字符)】
+=============DiskWirteTest=============
+   Write Size: 1 GB, Time: 9646 ms
+   Write Speed: 106.158 MB/s
+=============DiskWirteTest=============
+【清除内存缓存】
+【磁盘顺序读取1GB测试】
+=============DiskReadTest=============
+   Read Size: 1 GB, Time: 4340 ms
+   Read Speed: 235.945 MB/s
+=============DiskReadTest=============

@@ -11,7 +11,7 @@
 using namespace std;
 #include "net_test.hpp"
 
-long long file_size = MB_SIZE * 10;
+long long file_size = GB_SIZE;
 // std::string address = "127.0.0.1";
 // addr.sin_addr.s_addr = htonl(inet_addr(address.c_str()));
 void UDPClient()
@@ -76,7 +76,7 @@ void TCPClient(int times = 10)
     send_buffer = nullptr;
 }
 
-int main()
+int main(int argc, char const *argv[])
 {
     int tcp_or_udp = 1;
     std::cout << "Please input 0 for UDP, 1 for TCP: ";

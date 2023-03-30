@@ -22,6 +22,7 @@
 #include <boost/thread.hpp>
 
 int port_in = 10023, port_out = 10024, port_tcp = 11451;
+const long long KB_SIZE = 1024;
 const long long MB_SIZE = 1024 * 1024;
 const long long GB_SIZE = 1024 * 1024 * 1024;
 
@@ -71,7 +72,7 @@ void SocketBind(int &sockfd, struct sockaddr_in &addr, socklen_t &addr_len, int 
     }
     else
     {
-        std::cout << "Bind socket on port " << port << std::endl;
+        // std::cout << "Bind socket on port " << port << std::endl;
     }
 }
 
