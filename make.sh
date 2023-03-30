@@ -2,5 +2,4 @@
 cd build 
 cmake ..
 make
-# ./tom_cpp
-# cd ..
+cd ..

@@ -78,7 +78,16 @@ void TCPClient(int times = 10)
 
 int main()
 {
-    TimeCounter(UDPClient, 10, TestType::UDP, file_size);
-    // TCPClient(10);
+    int tcp_or_udp = 1;
+    std::cout << "Please input 0 for UDP, 1 for TCP: ";
+    std::cin >> tcp_or_udp;
+    if (tcp_or_udp == 0)
+    {
+        TimeCounter(UDPClient, 10, TestType::UDP, file_size);
+    }
+    else
+    {
+        TCPClient(10);
+    }
     return 0;
 }

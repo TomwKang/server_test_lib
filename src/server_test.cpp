@@ -155,14 +155,26 @@ int main()
 {
     /*内存分配测试*/
     MemTestMaxNew();
-    // MemCopyTest(max_size_new - 2048);
     MemTestMaxMalloc();
+
+    int thread_num = 1;
+    double mem_size = 7.0;
+    std::cout << "请输入线程数：";
+    std::cin >> thread_num;
+    std::cout << "请输入内存大小(G)：";
+    std::cin >> mem_size;
+    boost::thread_group thread_group_mem;
+    for (int i = 0; i < thread_num; ++i)
+    {
+        thread_group_mem.create_thread(boost::bind(MemCopyTest, mem_size * 1024));
+    }
+    thread_group_mem.join_all();
 
     /*磁盘IO测试*/
     // TimeCounter(DiskWirteTest, 1, TestType::DickIO);
-    DiskWirteTest();
+    // DiskWirteTest();
     // TimeCounter(DiskReadTest, 1, TestType::DickIO);
-    DiskReadTest();
+    // DiskReadTest();
     
     return 0;
 }

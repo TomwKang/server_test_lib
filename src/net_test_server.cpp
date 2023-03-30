@@ -18,10 +18,10 @@ void UDPServer()
     socklen_t addr_len = sizeof(addr);
     int sockfd = -1;
     int udp = 0;
-    SocketSetup(udp,sockfd, addr, addr_len, port_out);
+    SocketSetup(udp, sockfd, addr, addr_len, port_out);
     SocketBind(sockfd, addr, addr_len, port_out);
-    SocketRecv(udp,sockfd);
-    
+    SocketRecv(udp, sockfd);
+
     // boost::thread UDPServerRecv(SocketRecv,udp,sockfd);
     // UDPServerRecv.join();
 
@@ -34,11 +34,11 @@ void TCPServer()
     socklen_t addr_len = sizeof(addr);
     int sockfd = -1;
     int tcp = 1;
-    SocketSetup(tcp,sockfd, addr, addr_len, port_tcp);
+    SocketSetup(tcp, sockfd, addr, addr_len, port_tcp);
     SocketBind(sockfd, addr, addr_len, port_out);
     SocketListen(sockfd, port_tcp);
     SocketAccept(sockfd, addr, addr_len, port_tcp);
-    SocketRecv(tcp,sockfd);
+    SocketRecv(tcp, sockfd);
 
     // boost::thread TCPServerRecv(SocketRecv,tcp,sockfd);
     // TCPServerRecv.join();
@@ -48,7 +48,16 @@ void TCPServer()
 
 int main()
 {
-    UDPServer();
-    // TCPServer();
+    int tcp_or_udp = 1;
+    std::cout << "Please input 0 for UDP, 1 for TCP: ";
+    std::cin >> tcp_or_udp;
+    if (tcp_or_udp == 0)
+    {
+        UDPServer();
+    }
+    else
+    {
+        TCPServer();
+    }
     return 0;
 }
